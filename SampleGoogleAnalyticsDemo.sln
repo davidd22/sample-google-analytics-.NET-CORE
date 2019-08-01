@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleGoogleAnalyticsDemo", "SampleGoogleAnalyticsDemo\SampleGoogleAnalyticsDemo.csproj", "{7275AA47-3BCC-4347-B81C-5AFA68419352}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "libGoogleAnalytics", "libGoogleAnalytics\libGoogleAnalytics.csproj", "{56F436B8-CCE9-4FEC-B80A-B6A89AE8B764}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7275AA47-3BCC-4347-B81C-5AFA68419352}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7275AA47-3BCC-4347-B81C-5AFA68419352}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7275AA47-3BCC-4347-B81C-5AFA68419352}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7275AA47-3BCC-4347-B81C-5AFA68419352}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56F436B8-CCE9-4FEC-B80A-B6A89AE8B764}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56F436B8-CCE9-4FEC-B80A-B6A89AE8B764}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56F436B8-CCE9-4FEC-B80A-B6A89AE8B764}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56F436B8-CCE9-4FEC-B80A-B6A89AE8B764}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BF8D08A3-B9D7-41AC-8D67-3B2AE549EAB9}
+	EndGlobalSection
+EndGlobal
