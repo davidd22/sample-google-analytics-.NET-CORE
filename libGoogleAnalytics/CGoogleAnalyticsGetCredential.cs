@@ -13,8 +13,8 @@ namespace libGoogleAnalytics
     public static class CGoogleAnalyticsGetCredential
     {
         static string CredentialsFileName = null;
-        static string loginEmailAddress = null;
-        internal static async Task<UserCredential> GetCredential()
+
+        internal static async Task<UserCredential> GetCredential(string userEmailAddress)
         {
             using (var stream = new FileStream(CredentialsFileName, FileMode.Open, FileAccess.Read))
             {
@@ -22,7 +22,7 @@ namespace libGoogleAnalytics
                 return await GoogleWebAuthorizationBroker.AuthorizeAsync(
                     GoogleClientSecrets.Load(stream).Secrets,
                     new[] { AnalyticsReportingService.Scope.Analytics },
-                    loginEmailAddress, CancellationToken.None,
+                    userEmailAddress, CancellationToken.None,
                     new FileDataStore("GoogleAnalyticsApiConsole"));
             }
         }
@@ -31,11 +31,6 @@ namespace libGoogleAnalytics
         {
             if (CredentialsFileName == null)
                 CredentialsFileName = name;
-        }
-        public static void SetLoginEmailAddress(string address)
-        {
-            if (loginEmailAddress == null)
-                loginEmailAddress = address;
         }
     }
 }

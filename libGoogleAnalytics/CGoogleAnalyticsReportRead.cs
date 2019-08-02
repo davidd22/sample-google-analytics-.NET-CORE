@@ -18,19 +18,22 @@ namespace libGoogleAnalytics
         DateTime from;
         DateTime to;
 
-        string viewId;
+        CGoogleAnalyticsAuthDetails authDetails;
+
         List<Metric> metrics;
         List<Dimension> dimensions;
+
+
         public CGoogleAnalyticsReportRead(DateTime from
                                         , DateTime to
-                                        , string viewId
+                                        , CGoogleAnalyticsAuthDetails authDetails
                                         , List<Metric> metrics
                                         , List<Dimension> dimensions
             )
         {
             this.from = from;
             this.to = to;
-            this.viewId = viewId;
+            this.authDetails = authDetails;
             this.metrics = metrics;
             this.dimensions = dimensions;
         }
@@ -41,7 +44,7 @@ namespace libGoogleAnalytics
 
             try
             {
-                var credential = await CGoogleAnalyticsGetCredential.GetCredential();
+                var credential = await CGoogleAnalyticsGetCredential.GetCredential(this.authDetails.UserName);
 
                 using (var svc = new AnalyticsReportingService(
                     new BaseClientService.Initializer
@@ -62,7 +65,7 @@ namespace libGoogleAnalytics
                         DateRanges = new List<DateRange> { dateRange },
                         Dimensions = dimensions,
                         Metrics = metrics,
-                        ViewId = viewId
+                        ViewId = authDetails.ViewId
                     };
                     var getReportsRequest = new GetReportsRequest
                     {
