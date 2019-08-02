@@ -12,16 +12,16 @@ namespace SampleGoogleAnalyticsDemo
         static void Main(string[] args)
         {
             string viewId = "[VIEW_ID]";
-
+            string GoogleUserNmae = "[USER_NAME]";
             CGoogleAnalyticsGetCredential.SetCredentialsFileName("client_secret_google_analytic.json");
-            CGoogleAnalyticsGetCredential.SetLoginEmailAddress("myGmail@gmail.com");
+
 
             DateTime from = new DateTime(2019, 07, 30);
             DateTime to = new DateTime(2019, 07, 30, 23, 59, 59);
 
             CGoogleAnalyticsReportRead cGoogleAnalyticsReportRead = new CGoogleAnalyticsReportRead(from
                                                                                                     , to
-                                                                                                    , viewId
+                                                                                                    , new CGoogleAnalyticsAuthDetails(GoogleUserNmae,viewId)
                                                                                                     , null
 
                                                                                                    , new List<Dimension>()
