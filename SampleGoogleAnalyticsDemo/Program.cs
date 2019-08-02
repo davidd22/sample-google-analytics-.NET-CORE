@@ -12,7 +12,7 @@ namespace SampleGoogleAnalyticsDemo
         static void Main(string[] args)
         {
             string viewId = "[VIEW_ID]";
-            string GoogleUserNmae = "[USER_NAME]";
+            string GoogleLoginUserName = "[USER_NAME]";
             CGoogleAnalyticsGetCredential.SetCredentialsFileName("client_secret_google_analytic.json");
 
 
@@ -21,7 +21,7 @@ namespace SampleGoogleAnalyticsDemo
 
             CGoogleAnalyticsReportRead cGoogleAnalyticsReportRead = new CGoogleAnalyticsReportRead(from
                                                                                                     , to
-                                                                                                    , new CGoogleAnalyticsAuthDetails(GoogleUserNmae,viewId)
+                                                                                                    , new CGoogleAnalyticsAuthDetails(GoogleLoginUserName, viewId)
                                                                                                     , null
 
                                                                                                    , new List<Dimension>()
