@@ -8,11 +8,20 @@ namespace SampleGoogleAnalyticsDemo
 {
     class Program
     {
+
         static void Main(string[] args)
         {
-            CGoogleAnalyticsReportRead cGoogleAnalyticsReportRead = new CGoogleAnalyticsReportRead(new DateTime(2019, 07, 30)
-                                                                                                    , new DateTime(2019, 07, 30, 23, 59, 59)
-                                                                                                    , "183057978"
+            string viewId = "[VIEW_ID]";
+
+            CGoogleAnalyticsGetCredential.SetCredentialsFileName("client_secret_google_analytic.json");
+            CGoogleAnalyticsGetCredential.SetLoginEmailAddress("myGmail@gmail.com");
+
+            DateTime from = new DateTime(2019, 07, 30);
+            DateTime to = new DateTime(2019, 07, 30, 23, 59, 59);
+
+            CGoogleAnalyticsReportRead cGoogleAnalyticsReportRead = new CGoogleAnalyticsReportRead(from
+                                                                                                    , to
+                                                                                                    , viewId
                                                                                                     , null
 
                                                                                                    , new List<Dimension>()
@@ -35,9 +44,9 @@ namespace SampleGoogleAnalyticsDemo
 
                 for (int i = 0; i < report.Count; i++)
                 {
-            
+
                     Console.WriteLine("---------------------------");
-               
+
                     Console.WriteLine("OPERATING_SYSTEM: " + report[i][CDefinitionDimension.OPERATING_SYSTEM].ToString());
                     Console.WriteLine("SOURCE: " + report[i][CDefinitionDimension.SOURCE].ToString());
                     Console.WriteLine("MEDIUM: " + report[i][CDefinitionDimension.MEDIUM].ToString());

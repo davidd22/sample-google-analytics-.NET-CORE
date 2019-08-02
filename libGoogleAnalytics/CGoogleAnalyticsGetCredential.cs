@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace libGoogleAnalytics
 {
-    internal static class CGoogleAnalyticsGetCredential
+    public static class CGoogleAnalyticsGetCredential
     {
-        static string file_name = "client_secret_google_analytic.json";
-        static string loginEmailAddress = "dudu.munsa@gmail.com";
+        static string CredentialsFileName = null;
+        static string loginEmailAddress = null;
         internal static async Task<UserCredential> GetCredential()
         {
-            using (var stream = new FileStream(file_name, FileMode.Open, FileAccess.Read))
+            using (var stream = new FileStream(CredentialsFileName, FileMode.Open, FileAccess.Read))
             {
 
                 return await GoogleWebAuthorizationBroker.AuthorizeAsync(
@@ -25,6 +25,17 @@ namespace libGoogleAnalytics
                     loginEmailAddress, CancellationToken.None,
                     new FileDataStore("GoogleAnalyticsApiConsole"));
             }
+        }
+
+        public static void SetCredentialsFileName(string name)
+        {
+            if (CredentialsFileName == null)
+                CredentialsFileName = name;
+        }
+        public static void SetLoginEmailAddress(string address)
+        {
+            if (loginEmailAddress == null)
+                loginEmailAddress = address;
         }
     }
 }
