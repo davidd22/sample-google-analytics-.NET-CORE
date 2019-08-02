@@ -13,7 +13,7 @@ namespace SampleGoogleAnalyticsDemo
         {
             string viewId = "[VIEW_ID]";
             string GoogleLoginUserName = "[USER_NAME]";
-            CGoogleAnalyticsGetCredential.SetCredentialsFileName("client_secret_google_analytic.json");
+            CGoogleAnalyticsGetCredential.SetCredentialsFileName("[Your_Credential_File_Name.json]");
 
 
             DateTime from = new DateTime(2019, 07, 30);
